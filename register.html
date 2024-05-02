@@ -1,0 +1,121 @@
+<html>
+    <head>
+       <title>Register</title>
+    </head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 70%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 15px;
+            border-color: black;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        body{
+            background-color: rgb(197, 185, 47);
+
+        }
+        h1{
+            background-color: rgb(207, 198, 106);
+            box-shadow: 2px 3px 3px 5px black;
+            margin-top: 50px;  
+        }
+        button{
+            width: 150px;
+            height: 5%;
+            background-color:rgb(207, 198, 106); 
+            color: rgb(213, 11, 11);
+            box-shadow: 1px 1px 2px 3px black;
+        }
+        input{
+            font-size: 25px;
+            justify-content:flex-start;
+            margin-top: 10px;
+        }
+        label{
+            font-size: 25px;
+        }
+        
+        
+    </style>
+    <body>
+    <center>
+        <br><br>
+         <h1>STUDENT REGISTER</h1>
+
+        <label>Name:</label>
+        <input type="text" id="name" name="Stdname">
+        <br><br>
+        <label>Age:</label>
+        <input type="text" id="age" name="Stdage">
+        <br><br>
+        <label>Gender:</label>
+        <input type="text" id="gender" name="Stdgender">
+        <br><br>
+        <label>Course:</label>
+        <input type="text" id="course" name="Stdcourse">
+        <br><br>
+        <label>E-mail:</label>
+        <input type="text" id="mail" name="Stdmail">
+        <br><br>
+        <button onclick="save()">SAVE</button>
+        <br><br><br>
+        <table id="tablecreate">
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Course</th>
+              <th>E-mail</th>
+              <th>Delete record</th>
+            </tr>
+            <tr>
+                <td>Jayya</td>
+                <td>21</td>
+                <td>female</td>
+                <td>CST</td>
+                <td>djay@gmail.com</td>
+                <td><button onclick="deleteitem(event)">Delete</button></td>
+              </tr>
+    </center>
+    </body>
+</html>
+
+<script>
+    var nam=document.getElementById("name");
+    var ag=document.getElementById("age");
+    var gen=document.getElementById("gender");
+    var cor=document.getElementById("course");
+    var ma=document.getElementById("mail");
+    var table=document.getElementById("tablecreate");
+    
+    function save()
+    {
+      var trow=table.insertRow(-1);
+      var cell1=trow.insertCell(0);
+      var cell2=trow.insertCell(1);
+      var cell3=trow.insertCell(2);
+      var cell4=trow.insertCell(3);
+      var cell5=trow.insertCell(4);
+      var cell6=trow.insertCell(5);
+
+      cell1.innerHTML=nam.value;
+      cell2.innerHTML=ag.value;
+      cell3.innerHTML=gen.value;
+      cell4.innerHTML=cor.value;
+      cell5.innerHTML=ma.value;
+      cell6.innerHTML="<button onclick='deleteitem(event)''>Delete</button>";
+    }
+    function deleteitem(event)
+    {
+        var row=event.target.closest("tr");
+        row.remove() 
+    }
+
+</script>
